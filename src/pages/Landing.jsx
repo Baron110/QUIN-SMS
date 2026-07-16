@@ -22,7 +22,7 @@ export default function Landing() {
   return (
     <div className="font-body-base overflow-x-hidden bg-background text-on-surface min-h-screen">
       {/* Top Nav */}
-      <nav className="fixed top-0 left-0 w-full z-50 glass-panel h-16 flex items-center px-4 sm:px-gutter md:px-container-desktop justify-between">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md h-16 flex items-center px-4 sm:px-gutter md:px-container-desktop justify-between">
         <Logo size="sm" />
         <div className="hidden md:flex items-center gap-8">
           <a className="font-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#features">FEATURES</a>
