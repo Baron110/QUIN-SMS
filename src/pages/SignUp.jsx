@@ -39,7 +39,7 @@ export default function SignUp() {
     setSubmitting(true)
     try {
       await signUp(email, password)
-      navigate('/verify-email')
+      navigate('/dashboard')
     } catch (err) {
       setError(friendlyAuthError(err.code))
       setSubmitting(false)

@@ -23,8 +23,8 @@ export default function Settings() {
 
   return (
     <AppShell searchPlaceholder="Search settings...">
-      <div className="flex gap-8">
-        <nav className="w-64 flex flex-col gap-1 shrink-0">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+        <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible lg:w-64 shrink-0 -mx-4 px-4 lg:mx-0 lg:px-0">
           {tabs.map((t) => (
             <button
               key={t.id}
@@ -66,7 +66,7 @@ export default function Settings() {
                     <p className="text-on-surface-variant text-body-sm">JPG, GIF or PNG. Max size of 2MB.</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="font-label-caps text-label-caps text-on-surface-variant block uppercase">Full Name</label>
                     <input
@@ -118,7 +118,7 @@ export default function Settings() {
                   </div>
                   <h4 className="font-body-base text-body-base font-semibold text-on-surface">Password</h4>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input type="password" placeholder="Current Password" className="bg-background border border-outline-variant rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none" />
                   <input type="password" placeholder="New Password" className="bg-background border border-outline-variant rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary outline-none" />
                 </div>

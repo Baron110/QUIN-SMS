@@ -16,9 +16,9 @@ export default function Marketplace() {
 
   return (
     <AppShell searchPlaceholder="Search Country or Service (e.g. 'United States WhatsApp')...">
-      <div className="flex gap-gutter -mt-2">
-        <div className="flex-1 space-y-gutter">
-          <div className="grid grid-cols-3 gap-component-gap">
+      <div className="flex flex-col lg:flex-row gap-gutter -mt-2">
+        <div className="flex-1 space-y-gutter min-w-0">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-component-gap">
             <div className="bg-surface-container border border-outline-variant p-4 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-on-surface-variant text-label-caps font-label-caps">COUNTRIES AVAILABLE</span>
@@ -122,7 +122,7 @@ export default function Marketplace() {
           </div>
         </div>
 
-        <aside className="w-[320px] shrink-0 flex flex-col gap-gutter">
+        <aside className="w-full lg:w-[320px] shrink-0 flex flex-col gap-gutter">
           <div className="bg-surface-container border border-outline-variant rounded-xl flex flex-col">
             <div className="p-4 border-b border-outline-variant flex items-center justify-between">
               <h3 className="font-headline-sm text-[16px]">Recent Orders</h3>

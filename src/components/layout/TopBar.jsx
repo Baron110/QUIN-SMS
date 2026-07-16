@@ -4,7 +4,7 @@ import { doc, onSnapshot } from 'firebase/firestore'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { db } from '../../lib/firebase.js'
 
-export default function TopBar({ searchPlaceholder = 'Search orders, numbers...' }) {
+export default function TopBar({ searchPlaceholder = 'Search...', onMenuClick }) {
   const navigate = useNavigate()
   const { user, logOut } = useAuth()
   const [balance, setBalance] = useState(null)
@@ -38,9 +38,13 @@ export default function TopBar({ searchPlaceholder = 'Search orders, numbers...'
   const displayBalance = balance === null ? '—' : balance.toFixed(2)
 
   return (
-    <header className="fixed top-0 left-[280px] right-0 h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant z-30 flex items-center justify-between px-gutter">
-      <div className="flex items-center gap-4 flex-1 max-w-xl">
-        <div className="relative w-full group">
+    <header className="fixed top-0 left-0 lg:left-[280px] right-0 h-16 bg-background/80 backdrop-blur-md border-b border-outline-variant z-30 flex items-center justify-between px-3 sm:px-gutter gap-2">
+      <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
+        <button onClick={onMenuClick} className="lg:hidden shrink-0 p-2 text-on-surface-variant hover:text-on-surface">
+          <span className="material-symbols-outlined">menu</span>
+        </button>
+
+        <div className="relative w-full max-w-xl hidden sm:block group">
           <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl group-focus-within:text-primary transition-colors">
             search
           </span>
@@ -49,7 +53,7 @@ export default function TopBar({ searchPlaceholder = 'Search orders, numbers...'
             placeholder={searchPlaceholder}
             className="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-2 pl-10 pr-4 text-body-sm font-data-mono focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-on-surface-variant/40"
           />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-1">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-1">
             <kbd className="px-1.5 py-0.5 rounded border border-outline-variant bg-surface-container-high text-[10px] text-outline">
               CMD
             </kbd>
@@ -58,32 +62,36 @@ export default function TopBar({ searchPlaceholder = 'Search orders, numbers...'
             </kbd>
           </div>
         </div>
+
+        <button className="sm:hidden shrink-0 p-2 text-on-surface-variant hover:text-on-surface">
+          <span className="material-symbols-outlined">search</span>
+        </button>
       </div>
 
-      <div className="flex items-center gap-gutter">
+      <div className="flex items-center gap-2 sm:gap-gutter shrink-0">
         <div className="flex flex-col items-end">
-          <span className="font-data-mono text-data-mono text-primary font-bold">${displayBalance}</span>
+          <span className="font-data-mono text-xs sm:text-data-mono text-primary font-bold">${displayBalance}</span>
           <button
             onClick={() => navigate('/wallet')}
-            className="text-[10px] text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-tighter font-bold"
+            className="text-[9px] sm:text-[10px] text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-tighter font-bold whitespace-nowrap"
           >
-            <span className="material-symbols-outlined text-[12px]">add_circle</span>
-            Add Funds
+            <span className="material-symbols-outlined text-[11px] sm:text-[12px]">add_circle</span>
+            <span className="hidden xs:inline">Add Funds</span>
           </button>
         </div>
 
-        <div className="flex items-center gap-2 border-l border-outline-variant pl-gutter">
-          <button className="p-2 text-on-surface-variant hover:text-on-surface transition-all active:scale-90">
+        <div className="flex items-center gap-1 sm:gap-2 border-l border-outline-variant pl-2 sm:pl-gutter">
+          <button className="hidden sm:inline-flex p-2 text-on-surface-variant hover:text-on-surface transition-all active:scale-90">
             <span className="material-symbols-outlined">notifications</span>
           </button>
           <button
             onClick={() => navigate('/settings')}
-            className="p-2 text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
+            className="hidden sm:inline-flex p-2 text-on-surface-variant hover:text-on-surface transition-all active:scale-90"
           >
             <span className="material-symbols-outlined">settings</span>
           </button>
 
-          <div className="relative ml-1" ref={menuRef}>
+          <div className="relative ml-0.5 sm:ml-1" ref={menuRef}>
             <button
               onClick={() => setMenuOpen((v) => !v)}
               className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary text-xs font-bold cursor-pointer hover:bg-primary/30 transition-colors"
@@ -92,7 +100,7 @@ export default function TopBar({ searchPlaceholder = 'Search orders, numbers...'
             </button>
 
             {menuOpen && (
-              <div className="absolute right-0 top-10 w-56 bg-surface-container border border-outline-variant rounded-lg shadow-2xl overflow-hidden z-50">
+              <div className="absolute right-0 top-10 w-56 max-w-[calc(100vw-24px)] bg-surface-container border border-outline-variant rounded-lg shadow-2xl overflow-hidden z-50">
                 <div className="px-4 py-3 border-b border-outline-variant">
                   <p className="text-body-sm text-on-surface font-medium truncate">{user?.email}</p>
                 </div>

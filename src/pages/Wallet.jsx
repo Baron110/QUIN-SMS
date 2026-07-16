@@ -1,10 +1,7 @@
 import AppShell from '../components/layout/AppShell.jsx'
 
 const fundingMethods = [
-  { icon: 'currency_bitcoin', title: 'Crypto', desc: 'BTC, ETH, USDT, USDC (1% Fee)' },
-  { icon: 'credit_card', title: 'Card', desc: 'Visa, MC, Amex (2.9% + $0.30)' },
-  { icon: 'account_balance_wallet', title: 'PayPal', desc: 'Instant Balance Transfer (4% Fee)' },
-  { icon: 'account_balance', title: 'Bank Transfer', desc: 'Wire, ACH, SEPA (No Fees)' },
+  { icon: 'account_balance', title: 'Bank Transfer', desc: 'Instant deposit via Monnify \u2014 no fees' },
 ]
 
 const transactions = [
@@ -66,7 +63,7 @@ export default function Wallet() {
             <h2 className="font-headline-md text-headline-md text-on-surface">Deposit Funds</h2>
             <span className="text-body-sm text-on-surface-variant">Auto-recharge available below $10</span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 max-w-sm gap-4">
             {fundingMethods.map((m) => (
               <button key={m.title} className="card-hairline rounded-xl p-6 text-left group hover:border-primary hover:-translate-y-0.5 transition-all">
                 <div className="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
