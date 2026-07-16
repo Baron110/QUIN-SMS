@@ -25,10 +25,8 @@ export default function Landing() {
       <nav className="fixed top-0 left-0 w-full z-50 glass-panel h-16 flex items-center px-4 sm:px-gutter md:px-container-desktop justify-between">
         <Logo size="sm" />
         <div className="hidden md:flex items-center gap-8">
-          <a className="font-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#services">SERVICES</a>
           <a className="font-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#features">FEATURES</a>
           <a className="font-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">PRICING</a>
-          <a className="font-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#api">API</a>
         </div>
         <div className="flex items-center gap-2 sm:gap-component-gap">
           <button onClick={() => navigate('/login')} className="px-2.5 sm:px-4 py-2 text-on-surface font-body-sm hover:text-primary transition-colors text-sm sm:text-base">
@@ -227,57 +225,29 @@ export default function Landing() {
 
         {/* Cross-platform */}
         <section className="py-20 sm:py-32 bg-background relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-gutter">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-              <div className="order-2 lg:order-1 relative max-w-[280px] mx-auto lg:max-w-none">
-                <div className="absolute -inset-4 bg-primary/20 blur-3xl opacity-50" />
-                <div className="relative glass-panel rounded-[2.5rem] p-3 border border-outline-variant">
-                  <svg viewBox="0 0 320 660" className="w-full h-auto">
-                    <rect x="2" y="2" width="316" height="656" rx="52" fill="#0A0A0B" stroke="#27272A" strokeWidth="2" />
-                    <text x="26" y="38" fill="#e5e2e3" fontSize="14" fontFamily="Inter" fontWeight="600">9:41</text>
-                    <g transform="translate(252,26)">
-                      <rect x="0" y="6" width="3" height="6" rx="1" fill="#e5e2e3" />
-                      <rect x="5" y="4" width="3" height="8" rx="1" fill="#e5e2e3" />
-                      <rect x="10" y="2" width="3" height="10" rx="1" fill="#e5e2e3" />
-                      <rect x="15" y="0" width="3" height="12" rx="1" fill="#e5e2e3" />
-                      <path d="M24 10 a9 9 0 0 1 14 0" stroke="#e5e2e3" strokeWidth="1.6" fill="none" strokeLinecap="round" />
-                      <rect x="42" y="1" width="20" height="11" rx="3" fill="none" stroke="#e5e2e3" strokeWidth="1.4" />
-                      <rect x="44" y="3" width="14" height="7" rx="1.5" fill="#e5e2e3" />
-                    </g>
-                    <rect x="112" y="16" width="96" height="30" rx="15" fill="#000" />
-                    <text x="160" y="90" textAnchor="middle" fill="#8c909f" fontSize="11" fontFamily="JetBrains Mono">+1 (202) 555-0143</text>
-                    <text x="160" y="112" textAnchor="middle" fill="#4edea3" fontSize="10" fontFamily="Inter">● WAITING FOR SMS</text>
-                    <rect x="40" y="300" width="240" height="90" rx="16" fill="#adc6ff" opacity="0.08" stroke="#adc6ff" strokeOpacity="0.3" />
-                    <text x="160" y="335" textAnchor="middle" fill="#adc6ff" fontSize="10" fontFamily="Inter">CODE RECEIVED</text>
-                    <text x="160" y="370" textAnchor="middle" fill="#ffffff" fontSize="28" fontFamily="JetBrains Mono" fontWeight="700">842219</text>
-                  </svg>
+          <div className="max-w-4xl mx-auto px-4 sm:px-gutter text-center">
+            <span className="font-label-caps text-primary tracking-widest">ECOSYSTEM</span>
+            <h2 className="font-display-lg text-white leading-tight text-3xl sm:text-4xl md:text-5xl mt-4 mb-6">Verification on any device.</h2>
+            <p className="font-body-base text-on-surface-variant text-base sm:text-lg max-w-2xl mx-auto mb-12">
+              Bridge the gap between your desktop workflow and mobile verification needs. QUIN-SMS is optimized for every screen size.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-2xl mx-auto">
+              <div className="glass-panel p-6 rounded-2xl flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center flex-shrink-0 text-primary">
+                  <Laptop size={20} />
+                </div>
+                <div>
+                  <h4 className="font-headline-sm text-white mb-1">Browse & Buy on Desktop</h4>
+                  <p className="font-body-sm text-on-surface-variant">A powerful dashboard for managing large-scale verification needs.</p>
                 </div>
               </div>
-              <div className="space-y-6 sm:space-y-8 order-1 lg:order-2 text-center lg:text-left">
-                <span className="font-label-caps text-primary tracking-widest">ECOSYSTEM</span>
-                <h2 className="font-display-lg text-white leading-tight text-3xl sm:text-4xl md:text-5xl">Verification on any device.</h2>
-                <p className="font-body-base text-on-surface-variant text-base sm:text-lg">
-                  Bridge the gap between your desktop workflow and mobile verification needs. QUIN-SMS is optimized for every screen size.
-                </p>
-                <div className="space-y-6 text-left">
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center flex-shrink-0 text-primary">
-                      <Laptop size={20} />
-                    </div>
-                    <div>
-                      <h4 className="font-headline-sm text-white">Browse & Buy on Desktop</h4>
-                      <p className="font-body-sm text-on-surface-variant">A powerful dashboard for managing large-scale verification needs.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center flex-shrink-0 text-primary">
-                      <Smartphone size={20} />
-                    </div>
-                    <div>
-                      <h4 className="font-headline-sm text-white">Receive Code on Mobile</h4>
-                      <p className="font-body-sm text-on-surface-variant">View incoming codes instantly on our mobile-responsive UI.</p>
-                    </div>
-                  </div>
+              <div className="glass-panel p-6 rounded-2xl flex gap-4">
+                <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center flex-shrink-0 text-primary">
+                  <Smartphone size={20} />
+                </div>
+                <div>
+                  <h4 className="font-headline-sm text-white mb-1">Receive Code on Mobile</h4>
+                  <p className="font-body-sm text-on-surface-variant">View incoming codes instantly on our mobile-responsive UI.</p>
                 </div>
               </div>
             </div>
