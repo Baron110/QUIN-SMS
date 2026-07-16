@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Each user can only read/write their own profile + wallet doc.
+    // Nobody can write balanceUsd directly from the client once orders/deposits
+    // exist — that will move to Cloud Functions so people can't edit their own balance.
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    // Everything else is denied by default until we add rules for
+    // orders, transactions, and pricing collections.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
